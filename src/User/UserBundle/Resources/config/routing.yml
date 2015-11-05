@@ -1,0 +1,24 @@
+fos_user:
+    resource: "@UserUserBundle/Resources/config/routing/all.xml"
+    
+user_users:
+    resource: "@UserUserBundle/Resources/config/routing/user.yml"
+    prefix:   /admin/users
+
+add_users:
+    path: /admin/addUser
+    defaults: { _controller: UserUserBundle:Registration:newUser}
+view_users:
+    path:     /admin/update/{id}
+    defaults: { _controller: UserUserBundle:Registration:edit}
+    requirements:
+        id: \d+
+delete_users:
+    path:     /admin/delete/{id}
+    defaults: { _controller: UserUserBundle:Registration:delete}
+    requirements:
+        id: \d+    
+fos_user_register:
+    resource: routing/registration.xml
+    prefix: /register
+

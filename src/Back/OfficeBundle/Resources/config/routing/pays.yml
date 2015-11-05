@@ -1,0 +1,31 @@
+pays:
+    path:     /
+    defaults: { _controller: "BackOfficeBundle:Pays:index" }
+
+pays_show:
+    path:     /{id}/show
+    defaults: { _controller: "BackOfficeBundle:Pays:show" }
+
+pays_new:
+    path:     /new
+    defaults: { _controller: "BackOfficeBundle:Pays:new" }
+
+pays_create:
+    path:     /create
+    defaults: { _controller: "BackOfficeBundle:Pays:create" }
+    methods:  POST
+
+pays_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "BackOfficeBundle:Pays:edit" }
+
+pays_update:
+    path:     /{id}/update
+    defaults: { _controller: "BackOfficeBundle:Pays:update" }
+    methods:  [POST, PUT]
+
+pays_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "BackOfficeBundle:Pays:delete" }
+    requirements:
+                                _method:  POST|GET

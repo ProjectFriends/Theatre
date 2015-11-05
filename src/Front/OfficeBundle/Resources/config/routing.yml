@@ -1,0 +1,9 @@
+front_office_homepage:
+    path:     /
+    defaults: { _controller: FrontOfficeBundle:Default:index }
+front_office_index:
+    path:     /profil
+    defaults: { _controller: FrontOfficeBundle:Default:index }
+front_office_event:
+     path:     /event
+     defaults: { _controller: FrontOfficeBundle:Event:event }

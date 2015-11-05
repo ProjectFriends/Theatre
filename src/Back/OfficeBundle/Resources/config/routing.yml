@@ -1,0 +1,19 @@
+back_office_activite:
+    resource: "@BackOfficeBundle/Resources/config/routing/activite.yml"
+    prefix:   /activite
+
+back_office_structure:
+    resource: "@BackOfficeBundle/Resources/config/routing/structure.yml"
+    prefix:   /structure
+
+back_office_pays:
+    resource: "@BackOfficeBundle/Resources/config/routing/pays.yml"
+    prefix:   /pays
+
+back_office_artistes:
+    resource: "@BackOfficeBundle/Resources/config/routing/artistes.yml"
+    prefix:   /artistes
+
+back_office_homepage:
+    path:     /
+    defaults: { _controller: BackOfficeBundle:Default:index }

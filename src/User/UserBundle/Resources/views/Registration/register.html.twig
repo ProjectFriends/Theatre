@@ -1,0 +1,197 @@
+{% extends "FOSUserBundle::layoutUser.html.twig" %}
+{% block contenu %}
+    <div id="wrapper">
+        <div class="container" id="contenu_site">
+
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="content">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="heading">
+                                <div id="breadcrumbs">
+                                    <span>
+                                        <a href="" class="home">مواضيع الساعة</a></span><i class="fa fa-angle-double-left"></i>
+                                    <span>التسجيل</span></div>
+                                <div class=" clearfix"></div>
+                                <form class="form-horizontal" role="form" id="inscrit"  action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST">
+                                        {{ form_widget(form._token) }}
+                                    <div class="section_form" id="section_top">
+                                        معلومات تسجيل الدخول الخاصة بك: سوف تتلقى طلبا للتحقق من صحة البريد الإلكتروني
+                                    </div>
+
+                                    <div class=" clearfix"></div>
+
+                                    <div class="form-group">
+                                        <label for="inputStandard" class="col-md-2  col-xs-12 control-label">البريد الإلكتروني *</label>
+                                        <div class="col-lg-4 col-xs-12 col-md-4 inputtext">
+                                                 {{ form_widget(form.email, {'attr' : {'name' : 'email','style' : 'direction:RTL;'} }) }}
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputStandard" class="col-md-2 col-xs-12 control-label">اختيار اسم المستخدم *</label>
+                                        <div class="col-lg-4 col-xs-12 col-md-4 inputtext">
+                                             {{ form_widget(form.username, {'attr' : {'name' : 'username','style' : 'direction:RTL;'} }) }}
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputStandard" class="col-md-2 col-xs-12 control-label">اختيار كلمة مرور</label>
+                                        <div class="col-lg-4 col-xs-12 col-md-4 inputtext"> 
+                                            {{ form_widget(form.plainPassword.first, {'attr' : {'name' :'nom','style' : 'direction:RTL;'} }) }}
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputStandard" class="col-md-2 col-xs-12 control-label">تأكيد كلمة السر *</label>
+                                        <div class="col-lg-4 col-xs-12 col-md-4 inputtext">
+                                             {{ form_widget(form.plainPassword.second, {'attr' : {'name' :'nom','style' : 'direction:RTL;'} }) }}
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputStandard" class="col-md-2 col-xs-12 control-label">Votre prénom *</label>
+                                        <div class="col-lg-4 col-xs-12 col-md-4 inputtext">
+                                              {{ form_widget(form.prenom, {'attr' : {'style' : 'direction:RTL;'} }) }}
+                                           
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputStandard" class="col-md-2 col-xs-12 control-label">Votre nom *</label>
+                                        <div class="col-lg-4 col-xs-12 col-md-4 inputtext">
+                                               {{ form_widget(form.nom, {'attr' : {'style' : 'direction:RTL;'} }) }}
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputStandard" class="col-md-2 col-xs-12 control-label">Votre pays </label>
+                                        <div class="col-lg-4 col-md-4 col-xs-12 inputtext">
+                                            {{ form_widget(form.pays, {'attr' : {'class'  :'form-control','style' : 'direction:RTL;'} }) }}
+                                           
+                                        </div>
+                                    </div>
+                                    <div class=" clearfix"></div>
+                                    <div class="section_form" id="section_top">
+                                        بعض الأسئلة الاختيارية إلى فهم أفضل لزوارنا (معلومات غير متاحة للعامة)
+                                    </div>
+                                    <div class=" clearfix"></div>
+                                    <div class="form-group">
+                                        <label for="inputStandard" class="col-md-2 col-xs-12 control-label">قطاع الأعمال </label>
+                                        <div class="col-lg-4 col-md-4 col-xs-12 inputtext">
+                                             {{ form_widget(form.activite, {'attr' : {'class'  :'form-control','style' : 'direction:RTL;'} }) }}
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="inputStandard" class="col-md-2 col-xs-12 control-label">هيكل</label>
+                                        <div class="col-lg-4 col-md-4 col-xs-12 inputtext">
+                                             {{ form_widget(form.structure, {'attr' : {'class'  :'form-control','style' : 'direction:RTL;'} }) }}
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputStandard" class="col-md-2 col-xs-12 control-label">وظيفة</label>
+                                        <div class="col-lg-4 col-md-4 col-xs-12 inputtext">
+                                             {{ form_widget(form.fonction, {'attr' : {'class'  :'form-control','style' : 'direction:RTL;'} }) }}
+                                        </div>
+                                    </div>
+                             
+                                    <div class="form-group">
+                                        <label for="inputStandard" class="col-md-2 col-xs-12 control-label">عنوان</label>
+                                        <div class="col-lg-4 col-md-4 col-xs-12 inputtext">
+                                             {{ form_widget(form.adresse, {'attr' : {'class'  :'form-control','style' : 'direction:RTL;'} }) }}
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputStandard" class="col-md-2 col-xs-12 control-label">الرمز البريدي</label>
+                                        <div class="col-lg-4 col-md-4 col-xs-12 inputtext">
+                                         {{ form_widget(form.postal, {'attr' : {'class'  :'form-control','style' : 'direction:RTL;'} }) }}
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputStandard" class="col-md-2 col-xs-12 control-label">مدينة</label>
+                                        <div class="col-lg-4 col-md-4 col-xs-12 inputtext">
+                                       {{ form_widget(form.ville, {'attr' : {'class'  :'form-control','style' : 'direction:RTL;'} }) }}
+                                        </div>
+                                    </div>
+                                         <div class="form-group">
+                                        <label for="inputStandard" class="col-md-2 col-xs-12 control-label">هاتف</label>
+                                        <div class="col-lg-4 col-md-4 col-xs-12 inputtext">
+                                         {{ form_widget(form.tel, {'attr' : {'class'  :'form-control','style' : 'direction:RTL;'} }) }}
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputStandard" class="col-md-2 col-xs-12 control-label">أدخل الكلمات</label>
+                                        <div class="col-lg-4 inputtext">
+                                            <div id="recaptcha_widget" style="display:none" class="recaptcha_widget">
+                                                <div id="recaptcha_image"></div>
+                                                <div class="recaptcha_only_if_incorrect_sol" style="color:red">Incorrect. Please try again.</div>
+
+                                                <div class="recaptcha_input">
+                                                    <label class="recaptcha_only_if_image" for="recaptcha_response_field">Enter the words above:</label>
+                                                    <label class="recaptcha_only_if_audio" for="recaptcha_response_field">Enter the numbers you hear:</label>
+
+                                                    <input type="text" id="recaptcha_response_field" name="recaptcha_response_field">
+                                                </div>
+
+                                                <ul class="recaptcha_options">
+                                                    <li>
+                                                        <a href="javascript:Recaptcha.reload()">
+                                                            <i class="fa fa-refresh"></i>
+                                                            <span class="captcha_hide">Get another CAPTCHA</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="recaptcha_only_if_image">
+                                                        <a href="javascript:Recaptcha.switch_type('audio')">
+                                                            <i class="fa fa-volume-up"></i><span class="captcha_hide"> Get an audio CAPTCHA</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="recaptcha_only_if_audio">
+                                                        <a href="javascript:Recaptcha.switch_type('image')">
+                                                            <i class="fa fa-picture-o"></i><span class="captcha_hide"> Get an image CAPTCHA</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:Recaptcha.showhelp()">
+                                                            <i class="fa fa-question-circle"></i><span class="captcha_hide"> Help</span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+                                            <script type="text/javascript" src="http://www.google.com/recaptcha/api/challenge?k=[[6Le4ExATAAAAAJStriJQQBl9fK2TuvxvtmWQCJpM]]"></script>
+                                            <noscript>
+                                            <iframe src="http://www.google.com/recaptcha/api/noscript?k=[[6Le4ExATAAAAAJStriJQQBl9fK2TuvxvtmWQCJpM]]" height="300" width="500" frameborder="0"></iframe><br>
+                                            <textarea name="recaptcha_challenge_field"></textarea>
+                                            <input type="hidden" name="recaptcha_response_field" value="manual_challenge">
+                                            </noscript>
+                                        </div>
+                                    </div>
+
+                                   
+                                    <div class="form-group">
+
+                                        <div class="col-lg-4 col-md-4 col-xs-12 inputtext">
+                                            أريد أن الحصول على النشرة من theatre-contemporain.net &nbsp;<input type="checkbox" checked="" id="checkboxDefault3" >
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group pull-left">
+                                        <div class="col-sm-4 col-md-8 col-xs-12 ">
+                                            <button type="submit" class="btn btn-primary pull-right clearfix">إنشاء حساب</button>
+                                        </div>
+                                        <div class="col-sm-4 col-md-4 col-xs-12 ">
+                                            <button type="submit" class="btn btn-default pull-right">إلغاء</button>
+                                        </div>
+
+                                    </div>
+                                </form>
+
+                                <div class=" clearfix"></div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

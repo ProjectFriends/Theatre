@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+</html>
+<html lang="ar">
+<head>
+    <meta charset="utf-8" />
+    <title>{% block title %}Biznshare{% endblock %}</title>
+
+    <meta name="description" content="overview &amp; stats" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+
+    <!-- basic styles -->
+ <link href="{{asset('assets/css/style.css')}}" rel="stylesheet" />
+    <link href="{{asset('assets/css/bootstrap.min.css')}}" rel="stylesheet" />
+    <link rel="stylesheet" href="{{asset('assets/css/font-awesome.min.css')}}" />
+    <link rel="stylesheet" href="{{asset('assets/css/jquery-ui-1.10.3.full.min.css')}}" />
+    <link rel="stylesheet" href="{{asset('assets/css/dhtmlx.css')}}" />
+    <!--[if IE 7]>
+    <link rel="stylesheet" href="{{asset('assets/css/font-awesome-ie7.min.css')}}" />
+    <![endif]-->
+
+    <!-- page specific plugin styles -->
+
+    <!-- fonts -->
+
+    <link rel="stylesheet" href="{{asset('assets/css/ace-fonts.css')}}" />
+
+    <!-- ace styles -->
+
+    <link rel="stylesheet" href="{{asset('assets/css/ace.min.css')}}" media="screen" />
+    <link rel="stylesheet" href="{{asset('assets/css/ace.print.css')}}" media="print" />
+    <link rel="stylesheet" href="{{asset('assets/css/ace-rtl.min.css')}}" />
+    <link rel="stylesheet" href="{{asset('assets/css/ace-skins.min.css')}}" />
+    <link rel="stylesheet" href="{{asset('colorbox/colorbox.css')}}" />
+
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" href="assets/css/ace-ie.min.css" />
+    <![endif]-->
+
+    <!-- inline styles related to this page -->
+    {% block stylesheets %} {% endblock %}
+    <!-- ace settings handler -->
+
+    <script src="{{asset('assets/js/ace-extra.min.js')}}"></script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- <link rel="shortcut icon" href="http://labs.google.com/ridefinder/images/mm_20_green.png" type="image/x-icon"/>
+    -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+<div class="navbar navbar-default" id="navbar">
+    <script type="text/javascript">
+        try {
+            ace.settings.check('navbar', 'fixed')
+        } catch (e) {
+        }
+    </script>
+
+    <div class="navbar-container" id="navbar-container">
+        <div class="navbar-header pull-left">
+            <img src =""/>
+        </div><!-- /.navbar-header -->
+
+        <div class="navbar-header pull-right" role="navigation">
+            <ul class="nav ace-nav">
+                <li class="green">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        Version &nbsp;<b>1</b>
+                    </a>
+
+                </li>
+                <li class="purple">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <i class="icon-bell-alt icon-animated-bell"></i>
+                        <span class="badge badge-important" id="countnotif"></span>
+                    </a>
+
+                    <ul class="pull-right dropdown-navbar navbar-pink dropdown-menu dropdown-caret dropdown-close" style=" height: 570px; overflow-y: scroll;">
+                        <li class="dropdown-header">
+                            <i class="icon-warning-sign"></i>
+                            <span id="countnotif2"> </span>  Notifications
+
+
+
+                        </li>
+                       55555
+                    </ul>
+                </li>
+
+                <li class="light-blue">
+                    <a data-toggle="dropdown" href="#" class="dropdown-toggle">
+
+                                <span class="user-info">
+                                    <small>Bienvenue,</small>
+                                    {% if is_granted('ROLE_SUPER_ADMIN') %}
+                                        {{ app.user.username }}
+                                    {% endif %}
+                                </span>
+
+                        <i class="icon-caret-down"></i>
+                    </a>
+
+                    <ul class="user-menu pull-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+                        <li>
+                            <a href="{{ path('fos_user_security_logout') }}">
+                                <i class="icon-off"></i>
+                                Logout
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul><!-- /.ace-nav -->
+        </div><!-- /.navbar-header -->
+    </div><!-- /.container -->
+</div>
+
+<div class="main-container" id="main-container">
+    <script type="text/javascript">
+        try {
+            ace.settings.check('main-container', 'fixed')
+        } catch (e) {
+        }
+    </script>
+
+    <div class="main-container-inner">
+        <a class="menu-toggler" id="menu-toggler" href="#">
+            <span class="menu-text"></span>
+        </a>
+
+        <div class="sidebar" id="sidebar">
+            <script type="text/javascript">
+                try {
+                    ace.settings.check('sidebar', 'fixed')
+                } catch (e) {
+                }
+            </script>
+
+
+            {% include 'navbar.html.twig' %}
+
+            <div class="sidebar-collapse" id="sidebar-collapse">
+                <i class="icon-double-angle-left" data-icon1="icon-double-angle-left" data-icon2="icon-double-angle-right"></i>
+            </div>
+
+            <script type="text/javascript">
+                try {
+                    ace.settings.check('sidebar', 'collapsed')
+                } catch (e) {
+                }
+            </script>
+    <!--        <a href="#" title="tuninfoforyou" target="blank"><img src ="{{asset('assets/img/logo.png')}}" style="width: 177px;position: fixed;bottom: 0;left: 0;"/></a>
+-->
+        </div>
+
+        <div class="main-content">
+            {% block body %}{% endblock %}
+            <div id="dialog-confirm" class="hide">
+                <div class="alert alert-info bigger-110">
+                    cet enregistrement sera supprimer
+                </div>
+
+                <div class="space-6"></div>
+
+                <p class="bigger-110 bolder center grey">
+                    <i class="icon-hand-right blue bigger-120"></i>
+                    Voulez êtes Sûr!!
+                </p>
+            </div>
+
+
+
+
+
+
+
+        </div><!-- /.main-content -->
+
+    </div><!-- /.main-container-inner -->
+    <footer style="left:45%;position:absolute;bottom: 0px;">
+        <small>© Copyright 2015,<a href="#">Biznshare</a>  </small>
+    </footer>
+
+
+</div><!-- /.main-container -->
+
+
+
+<!--[if !IE]> -->
+
+<script type="text/javascript">
+    window.jQuery || document.write("<script src='{{asset('assets/js/jquery-1.10.2.min.js')}}'>" + "<" + "/script>");
+</script>
+
+<!-- <![endif]-->
+
+<!--[if IE]>
+<script type="text/javascript">
+    window.jQuery || document.write("<script src='assets/js/jquery-1.10.2.min.js'>"+"<"+"/script>");
+</script>
+<![endif]-->
+
+<script type="text/javascript">
+    if ("ontouchend" in document)
+        document.write("<script src='{{asset('assets/js/jquery.mobile.custom.min.js')}}'>" + "<" + "/script>");
+</script>
+<script src="{{asset('assets/js/bootstrap.min.js')}}"></script>
+<script src="{{asset('assets/js/typeahead-bs2.min.js')}}"></script>
+<script src="{{asset('assets/js/jquery-ui-1.10.3.full.min.js')}}"></script>
+<script src="{{asset('assets/js/dhtmlx.js')}}"></script>
+<script src="{{asset('bootbox.js')}}"></script>
+
+<!-- page specific plugin scripts -->
+
+
+<script src="{{asset('colorbox/jquery.colorbox.js')}}"></script>
+
+<script src="{{asset('assets/js/ace-elements.min.js')}}"></script>
+<script src="{{asset('assets/js/ace.min.js')}}"></script>
+<script type="text/javascript">
+    jQuery(function ($) {
+        $(".id-btn-dialog2").on('click', function (e) {
+            e.preventDefault();
+            var url = $(this).attr("href");
+            $("#dialog-confirm").removeClass('hide').dialog({
+                resizable: false,
+                modal: true,
+                title: "\t Confirmation",
+                title_html: true,
+                buttons: [
+                    {
+                        html: "<i class='icon-trash bigger-110'></i>&nbsp; Supprimer",
+                        "class": "btn btn-danger btn-xs",
+                        click: function () {
+                            //$(this).dialog("close");
+
+                            $(location).attr('href', url);
+                        }
+                    }
+                    ,
+                    {
+                        html: "<i class='icon-remove bigger-110'></i>&nbsp; Annuler",
+                        "class": "btn btn-xs",
+                        click: function () {
+                            $(this).dialog("close");
+                        }
+                    }
+                ]
+            });
+        });
+    })
+</script >
+<!--script>
+    jQuery(function ($) {
+
+        $(".iframe").colorbox({iframe: true, width: "50%", height: "80%", overlayClose: false});
+        var notif = 0;
+        notif += notifentrtien;
+        notif += notifcotrat;
+        notif += notifcotrat2;
+        notif += notifleasing;
+        //..........
+        $("#countnotif").html(notif);
+        $("#countnotif2").html(notif);
+    });
+</script-->
+{% block javascripts %}
+{% endblock %}
+
+</body>
+</html>

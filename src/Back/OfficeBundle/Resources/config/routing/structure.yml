@@ -1,0 +1,31 @@
+structure:
+    path:     /
+    defaults: { _controller: "BackOfficeBundle:Structure:index" }
+
+structure_show:
+    path:     /{id}/show
+    defaults: { _controller: "BackOfficeBundle:Structure:show" }
+
+structure_new:
+    path:     /new
+    defaults: { _controller: "BackOfficeBundle:Structure:new" }
+
+structure_create:
+    path:     /create
+    defaults: { _controller: "BackOfficeBundle:Structure:create" }
+    methods:  POST
+
+structure_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "BackOfficeBundle:Structure:edit" }
+
+structure_update:
+    path:     /{id}/update
+    defaults: { _controller: "BackOfficeBundle:Structure:update" }
+    methods:  [POST, PUT]
+
+structure_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "BackOfficeBundle:Structure:delete" }
+    requirements:
+                                _method:  POST|GET

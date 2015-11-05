@@ -1,0 +1,73 @@
+{% extends "backoffice.html.twig" %}
+{% block title %}Users{% endblock %}
+
+{% block body %}
+    <div class="breadcrumbs" id="breadcrumbs">
+        <script type="text/javascript">
+            try {
+                ace.settings.check('breadcrumbs', 'fixed')
+            } catch (e) {
+            }
+        </script>
+
+        <ul class="breadcrumb">
+            <li>
+                <i class="icon-dashboard home-icon"></i>
+                 <a href="{{ path('users') }}">Users</a>
+          </li>
+                <li class="active">  View </li>
+        </ul><!-- .breadcrumb -->
+    </div>
+    <div class="col-sm-12">
+
+        <div class="col-xs-11 label label-lg label-info arrowed-in arrowed-right">
+            <b>Users :</b>
+        </div>
+        <div class="space-8" style="width: 100px"></div>
+
+         <hr>
+        <div class="row">
+            <div class="col-sm-6">
+                <ul class="list-unstyled">
+   <li>
+                        <i class="icon-caret-right blue"></i>
+                        <strong class=" green">Nom : </strong> {{ entity.nom }}
+                    </li>
+                    <li>
+                        <i class="icon-caret-right blue"></i>
+                        <strong class=" green">Prenom : </strong>{{ entity.prenom  }}
+
+                    </li>
+
+                    <li>
+                        <i class="icon-caret-right blue"></i>
+                        <strong class=" green">User Name : </strong> {{ entity.username }}
+                    </li>
+                    <li>
+                        <i class="icon-caret-right blue"></i>
+                        <strong class=" green">Email : </strong> {{ entity.email }}
+                    </li>
+                    <li>
+                        <i class="icon-caret-right blue"></i>
+                        <strong class=" green">Role : </strong> {{ entity.roles[0] }}
+                    </li>
+                   
+                    </ul>
+            </div>
+
+        </div>
+        <hr>
+
+    </div>
+</div>
+
+{% endblock %}
+{% block javascripts %}{% endblock %}
+{% block stylesheets %}
+
+    <link href="{{asset('assets/css/bootstrap.min.css')}}" rel="stylesheet" />
+    <link rel="stylesheet" href="{{asset('assets/css/ace.min.css')}}" />
+    <link rel="stylesheet" href="{{asset('assets/css/ace-fonts.css')}}" />
+    <link rel="stylesheet" href="{{asset('colorbox/colorbox.css')}}" />
+{% endblock %}
+

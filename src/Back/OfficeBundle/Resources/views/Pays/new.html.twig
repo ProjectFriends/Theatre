@@ -1,0 +1,101 @@
+{% extends '::backoffice.html.twig' %}
+{% block title %}
+    قائمة البلدان
+
+{% endblock %}
+
+{% block body %}
+<div class="breadcrumbs" id="breadcrumbs">
+    <script type="text/javascript">
+        try {
+            ace.settings.check('breadcrumbs', 'fixed')
+        } catch (e) {
+        }
+    </script>
+
+
+    <ul class="breadcrumb">
+        <li>
+            <i class="icon-dashboard home-icon"></i>
+            <a href="{{ path('artistes') }}">
+
+
+                قائمة البلدان
+
+
+            </a>
+        </li>
+        <li class="active">   </li>
+    </ul><!-- .breadcrumb -->
+</div>
+
+<div class="page-content">
+
+
+
+    {{ form_start(form, {'attr': {'onsubmit':"return myFunction()" , 'class': 'form-horizontal' ,  'enctype':"multipart/form-data" } }) }}
+    <div class="row">
+
+
+        <div class="col-xs-12">
+            <div class="widget-box">
+                <div class="widget-header">
+                    <h4>معلومات رسمية</h4>
+
+
+
+
+                    <div class="widget-main">
+                        <br/>
+
+                        <div>
+                            <label for="form-field-8"><b>
+                                    الإسم</b><b class="red">*</b></label>
+                            {{ form_row(form.pays, { 'attr': {'class': 'form-control'} }) }}
+                        </div>
+
+                        <br/>
+                    </div>
+                </div>
+            </div><!-- /span -->
+
+
+
+            <div style="clear: both"></div>
+            <div class="space-4"></div>
+            <pre class="smaller">ملاحظة : <b class="red">*</b> حقل اجباري</pre>
+            <div class="space-4"></div>
+            <div class="modal-footer">
+
+
+                <input value="إلغاء" type="reset" class="btn btn-sm">
+
+                <input value="التحقق من صحة"  type="submit" class="btn btn-sm btn-primary">
+
+            </div>
+        </div>
+
+
+    </div>
+    {{ form_rest(form) }}
+    {% endblock %}
+    {% block javascripts %}
+        <script src="{{asset('assets/js/jquery.maskedinput.min.js')}}"></script>
+        <script type="text/javascript">
+            jQuery(function($) {
+
+            });
+        </script>
+
+        <script src="{{ asset('ckeditor/ckeditor.js') }}" type="text/javascript"></script>
+
+
+    {% endblock %}
+    {% block stylesheets %}
+        <link rel="stylesheet" href="{{asset('assets/css/datepicker.css')}}" />
+        <link href="{{asset('assets/css/bootstrap.min.css')}}" rel="stylesheet" />
+        <link rel="stylesheet" href="{{asset('assets/css/ace.min.css')}}" />
+        <link rel="stylesheet" href="{{asset('assets/css/ace-fonts.css')}}" />
+        <link rel="stylesheet" href="{{asset('colorbox/colorbox.css')}}" />
+    {% endblock %}
+

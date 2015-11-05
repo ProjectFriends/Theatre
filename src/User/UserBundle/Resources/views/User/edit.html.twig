@@ -1,0 +1,112 @@
+{% extends "::backoffice.html.twig" %}
+{% block title %}users{% endblock %}
+
+{% block body %}
+    <div class="breadcrumbs" id="breadcrumbs">
+        <script type="text/javascript">
+            try {
+                ace.settings.check('breadcrumbs', 'fixed')
+            } catch (e) {
+            }
+        </script>
+
+        <ul class="breadcrumb">
+            <li>
+                <i class="icon-home home-icon"></i>
+                <a href="">Tableau de bord</a>
+            </li>
+            <li class="active">Utilisateurs</li>
+        </ul><!-- .breadcrumb -->
+    </div>
+<div class="page-content"> 
+
+
+    
+    {%if (id is defined)%}
+    <form class="form-horizontal" role="form" action="{{ path('view_users', {'id': id}) }}" method="post" {{ form_enctype(form) }} >
+                {% else %}
+        <form class="form-horizontal" role="form" action="{{ path('add_users')}}" method="post" {{ form_enctype(form) }} >
+                {% endif %}
+            
+                <div class="row">
+
+
+
+                    <div class="col-xs-12">
+                        <div class="widget-box">
+                            <div class="widget-header">
+                                <h4>Informations Formelles</h4>
+
+
+                            </div>
+
+                            <div class="widget-body">
+                                <div class="widget-main">
+                                    <div>
+                                        <label for="form-field-8">Nom <b class="red">*</b></label>
+                        {{ form_row(form.nom, { 'attr': {'class': 'form-control'} }) }}
+                                    </div>
+
+                                    <div>
+                                        <label for="form-field-9">Prénom <b class="red">*</b></label>
+                        {{ form_row(form.prenom, { 'attr': {'class': 'form-control date-picker'} }) }}
+
+                                    </div>
+
+                                   
+                                    <div>
+                                        <label for="form-field-11">Email <b class="red">*</b></label>
+                        {{ form_row(form.email, { 'attr': {'class': 'form-control'} }) }}
+                                    </div>
+                                    <div>
+                                        <label for="form-field-11">Nom d'utilisateur <b class="red">*</b></label>
+                        {{ form_row(form.username, { 'attr': {'class': 'form-control'} }) }}
+                                    </div>
+                                    <div>
+                                        <label for="form-field-11">Mot de passe<b class="red">*</b></label>
+                        {{ form_row(form.plainPassword, { 'attr': {'class': 'form-control'} }) }}
+                                    </div>
+                                    <div>
+                                        <label for="form-field-11">Rôle<b class="red">*</b></label>
+                        {{ form_row(form.roles, { 'attr': {'class': 'form-control'} }) }}
+                                    </div>
+                                   
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- /span -->
+
+                   
+
+                    <div style="clear: both"></div>
+                    <div class="space-4"></div>
+                     <pre class="smaller">Remarque: <b class="red">*</b> champ obligatoire</pre>
+                    <div class="space-4"></div>
+                    <div class="modal-footer">
+
+
+                        <input value="Annuler" type="reset" class="btn btn-sm"> 
+
+                        <input value="Valider" type="submit" class="btn btn-sm btn-primary"> 
+
+                    </div>
+                </div>
+        {{ form_rest(form) }}
+            </form>
+            </div>
+{% endblock %}
+{% block javascripts %}   
+            <script src="{{asset('assets/js/jquery.maskedinput.min.js')}}"></script>
+            <script type="text/javascript">
+                jQuery(function($) {
+                  
+                });
+            </script>
+{% endblock %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{asset('assets/css/datepicker.css')}}" />
+    <link href="{{asset('assets/css/bootstrap.min.css')}}" rel="stylesheet" />
+    <link rel="stylesheet" href="{{asset('assets/css/ace.min.css')}}" />
+    <link rel="stylesheet" href="{{asset('assets/css/ace-fonts.css')}}" />
+    <link rel="stylesheet" href="{{asset('colorbox/colorbox.css')}}" />
+{% endblock %}

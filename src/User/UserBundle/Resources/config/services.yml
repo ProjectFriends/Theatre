@@ -1,0 +1,6 @@
+services: 
+    bizshare_user.registration.form.type:
+        class: User\UserBundle\Form\Type\RegistrationFormType
+        arguments: [%fos_user.model.user.class%]
+        tags:
+        - { name: form.type, alias: bizshare_user_registration }

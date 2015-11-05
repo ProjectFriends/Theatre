@@ -1,0 +1,31 @@
+activite:
+    path:     /
+    defaults: { _controller: "BackOfficeBundle:Activite:index" }
+
+activite_show:
+    path:     /{id}/show
+    defaults: { _controller: "BackOfficeBundle:Activite:show" }
+
+activite_new:
+    path:     /new
+    defaults: { _controller: "BackOfficeBundle:Activite:new" }
+
+activite_create:
+    path:     /create
+    defaults: { _controller: "BackOfficeBundle:Activite:create" }
+    methods:  POST
+
+activite_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "BackOfficeBundle:Activite:edit" }
+
+activite_update:
+    path:     /{id}/update
+    defaults: { _controller: "BackOfficeBundle:Activite:update" }
+    methods:  [POST, PUT]
+
+activite_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "BackOfficeBundle:Activite:delete" }
+    requirements:
+                                _method:  POST|GET
