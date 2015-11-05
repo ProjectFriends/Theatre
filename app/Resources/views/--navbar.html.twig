@@ -1,0 +1,92 @@
+<ul class="nav nav-list">
+  
+  <li class="{% if app.request.attributes.get('_route') == 'tarif' %}active{% endif %}">
+
+        <a href="{{ path('tarif') }}">
+            <i class="icon-list-alt"></i>
+            <span class="menu-text"> Tarifs </span>
+        </a>      
+           
+    </li>
+  <li class="{% if app.request.attributes.get('_route') == 'presentation' %}active{% endif %}">
+
+        <a href="{{ path('presentation') }}">
+            <i class="icon-dashboard"></i>
+            <span class="menu-text"> Présentation </span>
+        </a>
+
+    </li>
+    <li class="{% if app.request.attributes.get('_route') == 'fonct' %}active{% endif %}">
+
+        <a href="{{ path('fonct') }}">
+            <i class="icon-dashboard"></i>
+            <span class="menu-text"> Fonctionnalités </span>
+        </a>
+           
+    </li>
+    <li class="{% if app.request.attributes.get('_route') == 'qsnous' %}active{% endif %}">
+
+        <a href="{{ path('qsnous') }}">
+            <i class="icon-dashboard"></i>
+            <span class="menu-text"> Que Somme Nous </span>
+        </a>      
+           
+    </li>
+    <li class="{% if app.request.attributes.get('_route') == 'user' %}active{% endif %}">
+
+        <a href="{{ path('users') }}">
+            <i class="icon-user"></i>
+            <span class="menu-text">Users</span>
+        </a>
+
+    </li>
+
+
+
+
+
+    <li class="{% if app.request.attributes.get('_route') == 'typecompte' %}active open{% endif %}{% if app.request.attributes.get('_route') == 'politique' %}active open{% endif %}{% if app.request.attributes.get('_route') == 'condi' %}active open{% endif %}{% if app.request.attributes.get('_route') == 'optcompte' %}active open{% endif %}">
+        <a href="{{ path('typecompte') }}" class="dropdown-toggle">
+            <i class="icon-cogs"></i>
+            <span class="menu-text"> Configurations </span>
+
+            <b class="arrow icon-angle-down"></b>
+        </a>
+
+        <ul class="submenu">
+            <li class="{% if app.request.attributes.get('_route') == 'typecompte' %}active {% endif %}">
+                <a href="{{ path('typecompte') }}">
+                    <i class="icon-double-angle-right"></i>
+                    Type de compte
+                </a>
+            </li>
+
+
+            <li class="{% if app.request.attributes.get('_route') == 'optcompte' %}active {% endif %}">
+                <a href="{{ path('optcompte') }}">
+                    <i class="icon-double-angle-right"></i>
+                    Option de compte
+                </a>
+            </li>
+             
+     <li class="{% if app.request.attributes.get('_route') == 'condi' %}active {% endif %}">
+                <a href="{{ path('condi') }}">
+                    <i class="icon-double-angle-right"></i>
+                    Condition d'utilisation
+                </a>
+            </li>
+
+     <li class="{% if app.request.attributes.get('_route') == 'politique' %}active {% endif %}">
+                <a href="{{ path('politique') }}">
+                    <i class="icon-double-angle-right"></i>
+                    Politique de Confidentialité
+                </a>
+            </li>
+
+
+        </ul>
+    </li>
+
+
+
+</ul><!-- /.nav-list -->
